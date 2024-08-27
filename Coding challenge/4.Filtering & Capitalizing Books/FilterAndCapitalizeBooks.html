@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Books</title>
+</head>
+<body>
+
+<h1>Filtered Books:</h1>
+<pre id="output"></pre>
+
+<script>
+// Sample array of books with their authors and publication years
+const books = [
+    { title: "Book One", author: "john doe", year: 2008 },
+    { title: "Book Two", author: "jane smith", year: 2012 },
+    { title: "Book Three", author: "samuel green", year: 2015 },
+    { title: "Book Four", author: "maria garcia", year: 2005 },
+    { title: "Book Five", author: "lucas brown", year: 2011 }
+];
+
+// Function to capitalize the author names
+function capitalizeAuthorName(name) {
+    return name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
+// Function to filter books published after 2010 and capitalize author names
+function filterAndCapitalizeBooks(books) {
+    return books
+        .filter(book => book.year >= 2010) // Filter out books published before 2010
+        .map(book => ({
+            title: book.title,
+            author: capitalizeAuthorName(book.author), // Capitalize author names
+            year: book.year
+        }));
+}
+
+// Get the new array of filtered and capitalized books
+const filteredBooks = filterAndCapitalizeBooks(books);
+
+// Display the result in the HTML
+document.getElementById("output").textContent = JSON.stringify(filteredBooks, null, 2);
+</script>
+
+</body>
+</html>

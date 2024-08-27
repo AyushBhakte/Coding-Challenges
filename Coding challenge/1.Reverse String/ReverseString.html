@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse String with Delay</title>
+</head>
+<body>
+
+    <script>
+        // The input string to be reversed
+        const input = "Hello, World!";
+
+        // Function to reverse the string
+        function reverseString(str) {
+            return str.split('').reverse().join('');
+        }
+
+        // Use setTimeout to delay the execution of the reversal by 2 seconds (2000 milliseconds)
+        setTimeout(() => {
+            const reversed = reverseString(input);
+            console.log("Reversed String:", reversed);
+        }, 2000);
+    </script>
+
+</body>
+</html>
